@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  max-width: 60%;
+  margin: auto;
+  color: #1d3557;
+}
+
+.articles h2 {
+  background: #a8dadc;
+  padding: 1rem 2rem;
+}
+
+h1 {
+  font-size: 32px;
+  color: #e63946;
+  text-align: center;
+  margin: 2rem;
+}
+
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+article .articleNr {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 0;
+  text-align: center;
+}
+
+article p {
+  text-align: justify;
+  padding: 1rem 0;
+}
+
+input,
+button,
+textarea {
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  border: 3px solid #e63946;
+  margin-bottom: 2rem;
+}
+
+input::-webkit-input-placeholder,
+button::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+input:-ms-input-placeholder,
+button:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+input::-ms-input-placeholder,
+button::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+input::placeholder,
+button::placeholder,
+textarea::placeholder {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+textarea {
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+button {
+  background: #457b9d;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover, button:focus {
+  -webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+/*# sourceMappingURL=App.css.map */
