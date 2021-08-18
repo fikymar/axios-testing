@@ -4,7 +4,7 @@ const Nav = () => {
 	return (
 		<nav>
 			<Link to="/articles">Articles</Link>
-			<Link to="/id">Article By Id</Link>
+			<Link to="/byValue">Article By Id</Link>
 			<Link to="/new">Post New Article</Link>
 		</nav>
 	);
