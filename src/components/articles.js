@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { baseURL } from "../App";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Articles = ({ posts }) => {

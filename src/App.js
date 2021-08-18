@@ -40,7 +40,7 @@ function App() {
 							<NewArticle />
 						</Route>
 						{posts.map((post) => (
-							<Route path={`/${post.id}`}>
+							<Route path={`/${post.id}`} key={post.id}>
 								<ArticleById post={post} />
 							</Route>
 						))}
