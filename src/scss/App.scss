@@ -1,10 +1,8 @@
 // variables
 
-$color1: rgb(230, 57, 70);
-$color2: white;
-$color3: rgb(168, 218, 220);
-$color4: rgb(69, 123, 157);
-$color5: rgb(29, 53, 87);
+$color1: rgb(123, 194, 224);
+$color2: rgb(240, 188, 212);
+$color3: rgb(157, 216, 106);
 
 * {
 	margin: 0;
@@ -14,14 +12,6 @@ $color5: rgb(29, 53, 87);
 main {
 	max-width: 60%;
 	margin: auto;
-	color: $color5;
-}
-
-.articles {
-	h2 {
-		background: $color3;
-		padding: 1rem 2rem;
-	}
 }
 
 h1 {
@@ -29,6 +19,13 @@ h1 {
 	color: $color1;
 	text-align: center;
 	margin: 2rem;
+}
+
+h2 {
+	font-size: 28px;
+	color: $color3;
+	text-align: center;
+	margin-bottom: 1rem;
 }
 
 section {
@@ -42,12 +39,18 @@ article {
 		font-size: 12px;
 		font-weight: 700;
 		padding: 0;
+		color: $color3;
 		text-align: center;
 	}
 
 	p {
 		text-align: justify;
 		padding: 1rem 0;
+	}
+
+	h3 {
+		background: $color2;
+		padding: 1rem 2rem;
 	}
 }
 
@@ -75,17 +78,37 @@ textarea {
 }
 
 button {
-	background: $color4;
-	color: $color2;
+	background: $color2;
+	color: white;
 	cursor: pointer;
 
 	&:hover,
 	&:focus {
-		box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+		box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.3);
+		border-color: $color3;
 	}
 }
 
 label {
 	font-weight: 500;
 	margin-bottom: 0.5rem;
+}
+
+nav {
+	display: flex;
+	justify-content: space-evenly;
+	background: $color1;
+	padding: 1rem;
+
+	& a {
+		text-decoration: none;
+		color: white;
+		font-weight: 700;
+
+		&:hover {
+			text-decoration: underline;
+			text-decoration-color: $color3;
+			text-decoration-thickness: 5px;
+		}
+	}
 }

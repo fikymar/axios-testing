@@ -1,44 +1,53 @@
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import ArticleById from "./components/ArticleById";
 import NewArticle from "./components/NewArticle";
 import "./scss/App.css";
+import Nav from "./components/Nav";
 
 export const baseURL = "https://jsonplaceholder.typicode.com/posts";
 
 function App() {
-	const [post, setPost] = useState(null);
-	const [articleId, setArticleId] = useState(1);
+	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
-		axios.get(`${baseURL}/${articleId}`).then((res) => {
-			setPost(res.data);
+		axios.get(`${baseURL}?_limit=4`).then((res) => {
+			setPosts(res.data);
+			console.log(posts);
 		});
-	}, [articleId]);
+	}, []);
 
-	if (!post) return "No post!";
+	if (!posts) return "No post!";
 
 	return (
-		<main className="App">
-			<section className="articles">
-				<h1>Load articles</h1>
-				<label htmlFor="Number">
-					Enter number of article you want to read:
-				</label>
-				<input
-					type="number"
-					name="Number"
-					onChange={(e) => setArticleId(e.target.value)}
-					placeholder={1}
-				/>
-				<article>
-					<p className="articleNr"> Article nr. {post.id}</p>
-					<h2>{post.title.toUpperCase()}</h2>
-					<p>{post.body}</p>
-				</article>
-			</section>
+		<div className="App">
+			<Router>
+				<Nav />
 
-			<NewArticle />
-		</main>
+				<Switch>
+					<main>
+						<h1>Articles</h1>
+						<Route path="/articles">
+							<h2>Load articles</h2>
+							{posts.map((post) => (
+								<article>
+									<p className="articleNr"> Article nr. {post.id}</p>
+									<h3>{post.title}</h3>
+									<p>{post.body}</p>
+								</article>
+							))}
+						</Route>
+						<Route path="/id">
+							<ArticleById />
+						</Route>
+						<Route path="/new">
+							<NewArticle />
+						</Route>
+					</main>
+				</Switch>
+			</Router>
+		</div>
 	);
 }
 
