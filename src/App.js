@@ -43,7 +43,7 @@ function App() {
 								.map((post) => (
 									<article key={post.id}>
 										<p className="articleNr"> Article nr. {post.id}</p>
-										<h3>{post.title}</h3>
+										<h3>{post.title.toUpperCase()}</h3>
 										<p>{post.body}</p>
 									</article>
 								))}
