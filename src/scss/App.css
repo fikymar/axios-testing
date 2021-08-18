@@ -35,6 +35,30 @@ section {
           align-items: center;
 }
 
+.articles {
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.articles .next {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
 article .articleNr {
   font-size: 12px;
   font-weight: 700;
@@ -53,6 +77,24 @@ article h3 {
   padding: 1rem 2rem;
 }
 
+article h3.newTitle {
+  padding: 0;
+}
+
+article a {
+  color: #7bc2e0;
+  font-weight: 700;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+article a:hover {
+  text-decoration: underline;
+  -webkit-text-decoration-color: #9dd86a;
+          text-decoration-color: #9dd86a;
+  text-decoration-thickness: 5px;
+}
+
 input,
 button,
 textarea {
@@ -61,7 +103,8 @@ textarea {
   border-radius: 10px;
   padding: 0.5rem 1rem;
   border: 3px solid #7bc2e0;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 input::-webkit-input-placeholder,
@@ -90,6 +133,10 @@ button::placeholder,
 textarea::placeholder {
   font-weight: 400;
   font-size: 12px;
+}
+
+input[type="number"] {
+  max-width: 100px;
 }
 
 textarea {
@@ -132,6 +179,7 @@ nav a {
   text-decoration: none;
   color: white;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 nav a:hover {
@@ -139,5 +187,17 @@ nav a:hover {
   -webkit-text-decoration-color: #9dd86a;
           text-decoration-color: #9dd86a;
   text-decoration-thickness: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 /*# sourceMappingURL=App.css.map */

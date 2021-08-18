@@ -47,7 +47,7 @@ const NewArticle = () => {
 			<button onClick={createPost}>Create Post</button>
 			<article>
 				<p className="articleNr"> {newArticle.id}</p>
-				<h3>{newArticle.title}</h3>
+				<h3 className="newTitle">{newArticle.title}</h3>
 				<p>{newArticle.body}</p>
 			</article>
 		</section>

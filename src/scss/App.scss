@@ -34,7 +34,19 @@ section {
 	align-items: center;
 }
 
+.articles {
+	align-items: stretch;
+
+	& .next {
+		align-self: flex-end;
+	}
+}
+
 article {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+
 	.articleNr {
 		font-size: 12px;
 		font-weight: 700;
@@ -51,6 +63,22 @@ article {
 	h3 {
 		background: $color2;
 		padding: 1rem 2rem;
+
+		&.newTitle {
+			padding: 0;
+		}
+	}
+
+	a {
+		color: $color1;
+		font-weight: 700;
+		align-self: flex-end;
+
+		&:hover {
+			text-decoration: underline;
+			text-decoration-color: $color3;
+			text-decoration-thickness: 5px;
+		}
 	}
 }
 
@@ -63,12 +91,17 @@ textarea {
 
 	padding: 0.5rem 1rem;
 	border: 3px solid $color1;
-	margin-bottom: 2rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 
 	&::placeholder {
 		font-weight: 400;
 		font-size: 12px;
 	}
+}
+
+input[type="number"] {
+	max-width: 100px;
 }
 
 textarea {
@@ -104,11 +137,17 @@ nav {
 		text-decoration: none;
 		color: white;
 		font-weight: 700;
+		text-transform: uppercase;
 
 		&:hover {
 			text-decoration: underline;
 			text-decoration-color: $color3;
 			text-decoration-thickness: 5px;
 		}
+	}
+
+	@media screen and (max-width: 500px) {
+		flex-direction: column;
+		align-items: center;
 	}
 }

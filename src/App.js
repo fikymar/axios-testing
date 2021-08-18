@@ -11,17 +11,16 @@ import Articles from "./components/articles";
 export const baseURL = "https://jsonplaceholder.typicode.com/posts";
 
 function App() {
-	const [post, setPost] = useState(1);
-
-	// will be change
-	let id = 5;
+	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
-		axios.get(`${baseURL}/${id}`).then((res) => {
-			setPost(res.data);
-			console.log(post);
+		axios.get(baseURL).then((res) => {
+			setPosts(res.data);
+			console.log(posts);
 		});
-	}, [id]);
+	}, []);
+
+	if (!posts) return "No post!";
 
 	return (
 		<div className="App">
@@ -31,7 +30,7 @@ function App() {
 					<main>
 						<h1>Articles</h1>
 						<Route path="/articles">
-							<Articles id />
+							<Articles posts={posts} />
 						</Route>
 						<Route path="/articles"></Route>
 						<Route path="/byValue">
@@ -40,9 +39,11 @@ function App() {
 						<Route path="/new">
 							<NewArticle />
 						</Route>
-						<Route path={`/${id}`}>
-							<ArticleById post={post} />
-						</Route>
+						{posts.map((post) => (
+							<Route path={`/${post.id}`}>
+								<ArticleById post={post} />
+							</Route>
+						))}
 					</main>
 				</Switch>
 			</Router>

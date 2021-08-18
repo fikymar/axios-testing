@@ -3,25 +3,15 @@ import axios from "axios";
 import { baseURL } from "../App";
 import { Link } from "react-router-dom";
 
-const Articles = () => {
-	const [posts, setPosts] = useState([]);
+const Articles = ({ posts }) => {
 	const [showArticles, setShowArticles] = useState(1);
-
-	useEffect(() => {
-		axios.get(`${baseURL}`).then((res) => {
-			setPosts(res.data);
-			console.log(posts);
-		});
-	}, []);
-
-	if (!posts) return "No post!";
 
 	function handleClick() {
 		setShowArticles(showArticles + 4);
 	}
 
 	return (
-		<>
+		<section className="articles">
 			<h2>Load articles</h2>
 			{posts
 				.filter((post) => post.id < showArticles + 4 && post.id >= showArticles)
@@ -30,11 +20,13 @@ const Articles = () => {
 						<p className="articleNr"> Article nr. {post.id}</p>
 						<h3>{post.title.toUpperCase()}</h3>
 						<p>{post.body}</p>
-						{/* <Link to={`/${post.id}`}>See detail</Link> */}
+						<Link to={`/${post.id}`}>See detail</Link>
 					</article>
 				))}
-			<button onClick={handleClick}>Next 4 articles</button>
-		</>
+			<button className="next" onClick={handleClick}>
+				Next 4 articles
+			</button>
+		</section>
 	);
 };
 
